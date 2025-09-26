@@ -3,9 +3,9 @@ const express = require("express");
 const expressProxy = require("express-http-proxy");
 const app = express();
 
-app.use("/user", expressProxy("http://localhost:3001"));
-app.use("/captain", expressProxy("http://localhost:3002"));
-app.use("/ride", expressProxy("http://localhost:3003"));
+app.use("/user", expressProxy(process.env.User_SERVICE_URL));
+app.use("/captain", expressProxy(process.env.Captain_SERVICE_URL));
+app.use("/ride", expressProxy(process.env.Ride_SERVICE_URL));
 
 app.listen(process.env.PORT, () => {
   console.log("Gateway running on port 3000");
