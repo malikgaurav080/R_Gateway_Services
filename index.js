@@ -14,11 +14,6 @@ app.get("/health", (req, res) => {
   res.status(200).json({ status: "healthy", timestamp: new Date().toISOString() });
 });
 
-// Handle undefined routes
-app.use("*", (req, res) => {
-  res.status(404).json({ error: "Not Found" });
-});
-
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {
   console.log(`Gateway running on port ${PORT}`);
